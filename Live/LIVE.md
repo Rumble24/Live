@@ -41,5 +41,7 @@ flv协议及编码  然后将aac和h264音视频帧合成flv格式
 
 
 # 拉流
-
+VLC安装测试拉流
+百度搜索VCL
+运行 file -openNetwork 
 
