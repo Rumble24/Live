@@ -43,6 +43,7 @@
     return self;
 }
 
+/// 开启硬编码器
 - (void)resetCompressionSession {
     if (compressionSession) {
         VTCompressionSessionCompleteFrames(compressionSession, kCMTimeInvalid);
@@ -95,7 +96,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark -- LFVideoEncoder
+#pragma mark -- LFVideoEncoder 2.向编码器丢数据
 - (void)encodeVideoData:(CVPixelBufferRef)pixelBuffer timeStamp:(uint64_t)timeStamp {
     if(_isBackGround) return;
     frameCount++;
@@ -133,7 +134,7 @@
     _isBackGround = NO;
 }
 
-#pragma mark -- VideoCallBack
+#pragma mark -- VideoCallBack 3.通过硬编码回调获取h264数据
 static void VideoCompressonOutputCallback(void *VTref, void *VTFrameRef, OSStatus status, VTEncodeInfoFlags infoFlags, CMSampleBufferRef sampleBuffer){
     if (!sampleBuffer) return;
     CFArrayRef array = CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, true);

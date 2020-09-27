@@ -660,15 +660,15 @@
 		64A7469D25203993001FCACF /* LFLiveKit */ = {
 			isa = PBXGroup;
 			children = (
+				64A746A825203993001FCACF /* LFLiveKit.h */,
+				64A746D425203993001FCACF /* LFLiveSession.h */,
+				64A746B425203993001FCACF /* LFLiveSession.m */,
 				64A7469E25203993001FCACF /* configuration */,
 				64A746A325203993001FCACF /* capture */,
-				64A746A825203993001FCACF /* LFLiveKit.h */,
 				64A746A925203993001FCACF /* objects */,
-				64A746B425203993001FCACF /* LFLiveSession.m */,
 				64A746B525203993001FCACF /* publish */,
 				64A746BD25203993001FCACF /* filter */,
 				64A746C225203993001FCACF /* coder */,
-				64A746D425203993001FCACF /* LFLiveSession.h */,
 				64A746D525203993001FCACF /* Vendor */,
 			);
 			path = LFLiveKit;
@@ -678,9 +678,9 @@
 			isa = PBXGroup;
 			children = (
 				64A7469F25203993001FCACF /* LFLiveAudioConfiguration.h */,
-				64A746A025203993001FCACF /* LFLiveVideoConfiguration.m */,
 				64A746A125203993001FCACF /* LFLiveAudioConfiguration.m */,
 				64A746A225203993001FCACF /* LFLiveVideoConfiguration.h */,
+				64A746A025203993001FCACF /* LFLiveVideoConfiguration.m */,
 			);
 			path = configuration;
 			sourceTree = "<group>";
@@ -688,10 +688,10 @@
 		64A746A325203993001FCACF /* capture */ = {
 			isa = PBXGroup;
 			children = (
-				64A746A425203993001FCACF /* LFVideoCapture.m */,
 				64A746A525203993001FCACF /* LFAudioCapture.h */,
-				64A746A625203993001FCACF /* LFVideoCapture.h */,
 				64A746A725203993001FCACF /* LFAudioCapture.m */,
+				64A746A625203993001FCACF /* LFVideoCapture.h */,
+				64A746A425203993001FCACF /* LFVideoCapture.m */,
 			);
 			path = capture;
 			sourceTree = "<group>";
@@ -699,16 +699,16 @@
 		64A746A925203993001FCACF /* objects */ = {
 			isa = PBXGroup;
 			children = (
-				64A746AA25203993001FCACF /* LFVideoFrame.h */,
 				64A746AB25203993001FCACF /* LFLiveDebug.h */,
-				64A746AC25203993001FCACF /* LFAudioFrame.m */,
-				64A746AD25203993001FCACF /* LFLiveStreamInfo.m */,
-				64A746AE25203993001FCACF /* LFFrame.h */,
-				64A746AF25203993001FCACF /* LFVideoFrame.m */,
 				64A746B025203993001FCACF /* LFLiveDebug.m */,
-				64A746B125203993001FCACF /* LFLiveStreamInfo.h */,
+				64A746AA25203993001FCACF /* LFVideoFrame.h */,
+				64A746AF25203993001FCACF /* LFVideoFrame.m */,
 				64A746B225203993001FCACF /* LFAudioFrame.h */,
+				64A746AC25203993001FCACF /* LFAudioFrame.m */,
+				64A746AE25203993001FCACF /* LFFrame.h */,
 				64A746B325203993001FCACF /* LFFrame.m */,
+				64A746B125203993001FCACF /* LFLiveStreamInfo.h */,
+				64A746AD25203993001FCACF /* LFLiveStreamInfo.m */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -716,13 +716,13 @@
 		64A746B525203993001FCACF /* publish */ = {
 			isa = PBXGroup;
 			children = (
-				64A746B625203993001FCACF /* LFStreamRTMPSocket.h */,
-				64A746B725203993001FCACF /* NSMutableArray+LFAdd.m */,
-				64A746B825203993001FCACF /* LFStreamingBuffer.h */,
-				64A746B925203993001FCACF /* LFStreamRtmpSocket.m */,
 				64A746BA25203993001FCACF /* LFStreamSocket.h */,
-				64A746BB25203993001FCACF /* NSMutableArray+LFAdd.h */,
+				64A746B625203993001FCACF /* LFStreamRTMPSocket.h */,
+				64A746B925203993001FCACF /* LFStreamRtmpSocket.m */,
+				64A746B825203993001FCACF /* LFStreamingBuffer.h */,
 				64A746BC25203993001FCACF /* LFStreamingBuffer.m */,
+				64A746BB25203993001FCACF /* NSMutableArray+LFAdd.h */,
+				64A746B725203993001FCACF /* NSMutableArray+LFAdd.m */,
 			);
 			path = publish;
 			sourceTree = "<group>";
@@ -741,14 +741,14 @@
 		64A746C225203993001FCACF /* coder */ = {
 			isa = PBXGroup;
 			children = (
-				64A746C325203993001FCACF /* LFAudioEncoding.h */,
-				64A746C425203993001FCACF /* LFH264VideoEncoder.h */,
-				64A746C525203993001FCACF /* LFHardwareAudioEncoder.m */,
-				64A746C625203993001FCACF /* LFH264VideoEncoder.mm */,
 				64A746C725203993001FCACF /* H264 */,
-				64A746D025203993001FCACF /* LFHardwareVideoEncoder.h */,
+				64A746C325203993001FCACF /* LFAudioEncoding.h */,
 				64A746D125203993001FCACF /* LFVideoEncoding.h */,
+				64A746C425203993001FCACF /* LFH264VideoEncoder.h */,
+				64A746C625203993001FCACF /* LFH264VideoEncoder.mm */,
 				64A746D225203993001FCACF /* LFHardwareAudioEncoder.h */,
+				64A746C525203993001FCACF /* LFHardwareAudioEncoder.m */,
+				64A746D025203993001FCACF /* LFHardwareVideoEncoder.h */,
 				64A746D325203993001FCACF /* LFHardwareVideoEncoder.m */,
 			);
 			path = coder;

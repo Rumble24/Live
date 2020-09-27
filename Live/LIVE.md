@@ -25,7 +25,8 @@ FLV/RTMP/HLS/MP4协议要十分清楚
 3.[最简单的iOS直播推流](https://www.jianshu.com/p/30b82f1e61a9)
 4.[音视频已强势崛起，我们该如何快速入门音视频技术？](https://zhuanlan.zhihu.com/p/122578544)
 5.[本地rtmp服务](https://www.cnblogs.com/yajunLi/p/6412821.html) 
-
+6.[1小时学会：最简单的iOS直播推流](https://www.jianshu.com/p/30b82f1e61a9)
+7.[ios实现H264裸流封装为FLV格式](https://blog.csdn.net/tiberx/article/details/42025907)
 
 # 推流
 视频捕获：系统方法捕获，GPUImage捕获，CMSampleRef解析
