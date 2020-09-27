@@ -24,7 +24,7 @@ FLV/RTMP/HLS/MP4协议要十分清楚
 2.[基于LFLiveKit的直播项目](https://www.jianshu.com/p/b397867367dd)
 3.[最简单的iOS直播推流](https://www.jianshu.com/p/30b82f1e61a9)
 4.[音视频已强势崛起，我们该如何快速入门音视频技术？](https://zhuanlan.zhihu.com/p/122578544)
-5.[本地rtmp服务](https://www.cnblogs.com/baitongtong/p/12794605.html)
+5.[本地rtmp服务](https://www.cnblogs.com/yajunLi/p/6412821.html) 需要关闭防火墙
 
 
 # 推流
@@ -49,6 +49,27 @@ nginx
 
 brew install ffmpeg
 
+
+修改：nginx.conf
+
+添加
+rtmp {
+    server {
+        listen 1935;
+        application rtmplive {
+            live on;
+            max_connections 1024;
+        }
+        application hls{
+            live on;
+            hls on;
+            hls_path /usr/local/var/www/hls;
+            hls_fragment 1s;
+        }
+    }
+}
+
+重启：nginx -s reload
 VLC安装测试拉流
 百度搜索VCL
 运行 file -openNetwork 

@@ -143,10 +143,13 @@
         default:
             break;
     }
+    
+    NSLog(@"推流状态改变  %@",stateStr);
 }
 
 //推流信息
-- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo{
+- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo {
+    NSLog(@"推流信息  %@",session.currentImage);
 }
 
 //推流错误信息
@@ -181,7 +184,7 @@
         _session.reconnectCount = 5;//重连次数
         _session.saveLocalVideo = YES;
         _session.saveLocalVideoPath = [NSURL fileURLWithPath:localVideoPath];
-        
+        _session.running = YES;
         /// 显示试图
         self.preView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
         self.preView.backgroundColor = [UIColor whiteColor];
