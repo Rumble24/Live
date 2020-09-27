@@ -45,6 +45,14 @@
     
     [ViewController getSystemCameraStatus:nil];
     [ViewController getSystemAudioStatus:nil];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDelete = [fileManager removeItemAtPath:localVideoPath error:nil];
+    if (isDelete) {
+        NSLog(@"删除成功");
+    } else {
+        NSLog(@"删除失败");
+    }
 }
 
 + (void)getSystemCameraStatus:(PermissionBlock)response {
@@ -184,6 +192,7 @@
         _session.reconnectCount = 5;//重连次数
         _session.saveLocalVideo = YES;
         _session.saveLocalVideoPath = [NSURL fileURLWithPath:localVideoPath];
+        _session.delegate = self;
         _session.running = YES;
         /// 显示试图
         self.preView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
@@ -191,7 +200,6 @@
         [self.view addSubview:self.preView];
         _session.preView = self.preView;
         
-        _session.delegate = self;
     }
     return _session;
 }
