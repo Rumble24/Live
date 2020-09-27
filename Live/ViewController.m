@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <LFLiveKit.h>
+#import "LFLiveKit.h"
 #import <AVKit/AVKit.h>
 
 
@@ -36,9 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"直播";
-    
+        
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.playBtn];
     [self.view addSubview:self.startButton];
@@ -209,7 +207,7 @@
         _startButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [_startButton setTitle:@"开始" forState:0];
         [_startButton setTitle:@"结束" forState:UIControlStateSelected];
-        _startButton.frame = CGRectMake(0, 88 + 20, kScreenWidth/4.0, 50);
+        _startButton.frame = CGRectMake(0, kScreenWidth + 20, kScreenWidth/4.0, 50);
         [_startButton addTarget:self action:@selector(startLive:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _startButton;
@@ -219,7 +217,7 @@
     if (!_playBtn) {
         _playBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_playBtn setTitle:@"播放" forState:0];
-        _playBtn.frame = CGRectMake(kScreenWidth/4.0, 88 + 20, kScreenWidth/4.0, 50);
+        _playBtn.frame = CGRectMake(kScreenWidth/4.0, kScreenWidth + 20, kScreenWidth/4.0, 50);
         [_playBtn setTitleColor:[UIColor redColor] forState:0];
         [_playBtn addTarget:self action:@selector(startPlayAction:) forControlEvents:UIControlEventTouchUpInside];
     }
