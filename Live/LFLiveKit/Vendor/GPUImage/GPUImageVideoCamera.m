@@ -877,6 +877,10 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
     else if (captureOutput == audioOutput)
     {
         [self processAudioSampleBuffer:sampleBuffer];
+        if (self.delegate)
+        {
+            [self.delegate willOutputAudioSampleBuffer:sampleBuffer];
+        }
     }
     else
     {

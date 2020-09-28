@@ -2,7 +2,7 @@
 
 AVFunction
 VideoToolBox：https://blog.csdn.net/ruoxinliu/article/details/53765041
-AudioToolBox
+AudioToolBox:IOS使用AudioToolbox实现音频编解码:https://www.jianshu.com/p/27df093f0e2e
 ffmpeg
 GPUImage / OpenGL / GLKit / 
 
@@ -76,3 +76,14 @@ VLC安装测试拉流
 file  文件夹下面 点击：openNetwork 
 
 需要关闭防火墙
+
+
+
+
+
+
+
+
+
+
+

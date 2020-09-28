@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6432C5072521871A0050EE40 /* LALA.md in Resources */ = {isa = PBXBuildFile; fileRef = 6432C5062521871A0050EE40 /* LALA.md */; };
+		6432C50A2521EFA20050EE40 /* MeAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C5092521EFA20050EE40 /* MeAudioEncoder.m */; };
 		64A7469C2520374B001FCACF /* MeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7469B2520374B001FCACF /* MeRecordController.m */; };
 		64A7484425203994001FCACF /* LFLiveVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A746A025203993001FCACF /* LFLiveVideoConfiguration.m */; };
 		64A7484525203994001FCACF /* LFLiveAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A746A125203993001FCACF /* LFLiveAudioConfiguration.m */; };
@@ -221,6 +223,9 @@
 		4C451F745ECA44C2748850DD /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
 		50960994CE3C3418F5B8C200 /* Pods_Live.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		610F00E318F8FD0016EE829F /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
+		6432C5062521871A0050EE40 /* LALA.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LALA.md; sourceTree = "<group>"; };
+		6432C5082521EFA20050EE40 /* MeAudioEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeAudioEncoder.h; sourceTree = "<group>"; };
+		6432C5092521EFA20050EE40 /* MeAudioEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeAudioEncoder.m; sourceTree = "<group>"; };
 		64A7469A2520374B001FCACF /* MeRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeRecordController.h; sourceTree = "<group>"; };
 		64A7469B2520374B001FCACF /* MeRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeRecordController.m; sourceTree = "<group>"; };
 		64A7469F25203993001FCACF /* LFLiveAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveAudioConfiguration.h; sourceTree = "<group>"; };
@@ -1192,12 +1197,15 @@
 			isa = PBXGroup;
 			children = (
 				64BE3FBF251DD2FA00226152 /* LIVE.md */,
+				6432C5062521871A0050EE40 /* LALA.md */,
 				64BE3FA6251DD1EF00226152 /* AppDelegate.h */,
 				64BE3FA7251DD1EF00226152 /* AppDelegate.m */,
 				64BE3FAC251DD1EF00226152 /* ViewController.h */,
 				64BE3FAD251DD1EF00226152 /* ViewController.m */,
 				64A7469A2520374B001FCACF /* MeRecordController.h */,
 				64A7469B2520374B001FCACF /* MeRecordController.m */,
+				6432C5082521EFA20050EE40 /* MeAudioEncoder.h */,
+				6432C5092521EFA20050EE40 /* MeAudioEncoder.m */,
 				64BE3FB2251DD1F000226152 /* Assets.xcassets */,
 				64BE3FB4251DD1F000226152 /* LaunchScreen.storyboard */,
 				64BE3FB7251DD1F000226152 /* Info.plist */,
@@ -1282,6 +1290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6432C5072521871A0050EE40 /* LALA.md in Resources */,
 				64BE3FC0251DD2FA00226152 /* LIVE.md in Resources */,
 				64BE3FB6251DD1F000226152 /* LaunchScreen.storyboard in Resources */,
 				64BE3FB3251DD1F000226152 /* Assets.xcassets in Resources */,
@@ -1335,6 +1344,7 @@
 				64A7489125203994001FCACF /* GPUImageAdaptiveThresholdFilter.m in Sources */,
 				64A748C425203994001FCACF /* GPUImageCrosshairGenerator.m in Sources */,
 				64A748C225203994001FCACF /* GPUImageSoftLightBlendFilter.m in Sources */,
+				6432C50A2521EFA20050EE40 /* MeAudioEncoder.m in Sources */,
 				64A748F325203994001FCACF /* GPUImageHighlightShadowFilter.m in Sources */,
 				64A748E125203994001FCACF /* GPUImageLocalBinaryPatternFilter.m in Sources */,
 				64A7487625203994001FCACF /* GPUImageHistogramFilter.m in Sources */,
