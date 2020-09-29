@@ -10,6 +10,9 @@
 		6432C5072521871A0050EE40 /* LALA.md in Resources */ = {isa = PBXBuildFile; fileRef = 6432C5062521871A0050EE40 /* LALA.md */; };
 		6432C50A2521EFA20050EE40 /* MeAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C5092521EFA20050EE40 /* MeAudioEncoder.m */; };
 		6432C50D2522D0990050EE40 /* MeVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C50C2522D0990050EE40 /* MeVideoEncoder.m */; };
+		6432C515252327010050EE40 /* OpenGLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C514252327010050EE40 /* OpenGLController.m */; };
+		6432C51B2523281A0050EE40 /* HDUploadIntroRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C5172523281A0050EE40 /* HDUploadIntroRecordView.m */; };
+		6432C51C2523281A0050EE40 /* HDUploadRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C51A2523281A0050EE40 /* HDUploadRecordEncoder.m */; };
 		64A7469C2520374B001FCACF /* MeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7469B2520374B001FCACF /* MeRecordController.m */; };
 		64A7484425203994001FCACF /* LFLiveVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A746A025203993001FCACF /* LFLiveVideoConfiguration.m */; };
 		64A7484525203994001FCACF /* LFLiveAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A746A125203993001FCACF /* LFLiveAudioConfiguration.m */; };
@@ -212,7 +215,7 @@
 		64A7490A25203994001FCACF /* parseurl.c in Sources */ = {isa = PBXBuildFile; fileRef = 64A7484125203994001FCACF /* parseurl.c */; };
 		64A7490B25203994001FCACF /* amf.c in Sources */ = {isa = PBXBuildFile; fileRef = 64A7484225203994001FCACF /* amf.c */; };
 		64BE3FA8251DD1EF00226152 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE3FA7251DD1EF00226152 /* AppDelegate.m */; };
-		64BE3FAE251DD1EF00226152 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE3FAD251DD1EF00226152 /* ViewController.m */; };
+		64BE3FAE251DD1EF00226152 /* LiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE3FAD251DD1EF00226152 /* LiveController.m */; };
 		64BE3FB3251DD1F000226152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BE3FB2251DD1F000226152 /* Assets.xcassets */; };
 		64BE3FB6251DD1F000226152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64BE3FB4251DD1F000226152 /* LaunchScreen.storyboard */; };
 		64BE3FB9251DD1F000226152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE3FB8251DD1F000226152 /* main.m */; };
@@ -229,6 +232,12 @@
 		6432C5092521EFA20050EE40 /* MeAudioEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeAudioEncoder.m; sourceTree = "<group>"; };
 		6432C50B2522D0990050EE40 /* MeVideoEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeVideoEncoder.h; sourceTree = "<group>"; };
 		6432C50C2522D0990050EE40 /* MeVideoEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeVideoEncoder.m; sourceTree = "<group>"; };
+		6432C513252327010050EE40 /* OpenGLController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLController.h; sourceTree = "<group>"; };
+		6432C514252327010050EE40 /* OpenGLController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLController.m; sourceTree = "<group>"; };
+		6432C5172523281A0050EE40 /* HDUploadIntroRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDUploadIntroRecordView.m; sourceTree = "<group>"; };
+		6432C5182523281A0050EE40 /* HDUploadRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDUploadRecordEncoder.h; sourceTree = "<group>"; };
+		6432C5192523281A0050EE40 /* HDUploadIntroRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDUploadIntroRecordView.h; sourceTree = "<group>"; };
+		6432C51A2523281A0050EE40 /* HDUploadRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDUploadRecordEncoder.m; sourceTree = "<group>"; };
 		64A7469A2520374B001FCACF /* MeRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeRecordController.h; sourceTree = "<group>"; };
 		64A7469B2520374B001FCACF /* MeRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeRecordController.m; sourceTree = "<group>"; };
 		64A7469F25203993001FCACF /* LFLiveAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveAudioConfiguration.h; sourceTree = "<group>"; };
@@ -644,8 +653,8 @@
 		64BE3FA3251DD1EF00226152 /* Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Live.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64BE3FA6251DD1EF00226152 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		64BE3FA7251DD1EF00226152 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		64BE3FAC251DD1EF00226152 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		64BE3FAD251DD1EF00226152 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		64BE3FAC251DD1EF00226152 /* LiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveController.h; sourceTree = "<group>"; };
+		64BE3FAD251DD1EF00226152 /* LiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveController.m; sourceTree = "<group>"; };
 		64BE3FB2251DD1F000226152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64BE3FB5251DD1F000226152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64BE3FB7251DD1F000226152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -665,6 +674,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6432C50E252326610050EE40 /* LiveKit */ = {
+			isa = PBXGroup;
+			children = (
+				64BE3FAC251DD1EF00226152 /* LiveController.h */,
+				64BE3FAD251DD1EF00226152 /* LiveController.m */,
+				64A7469D25203993001FCACF /* LFLiveKit */,
+			);
+			path = LiveKit;
+			sourceTree = "<group>";
+		};
+		6432C510252326810050EE40 /* MeLive */ = {
+			isa = PBXGroup;
+			children = (
+				64A7469A2520374B001FCACF /* MeRecordController.h */,
+				64A7469B2520374B001FCACF /* MeRecordController.m */,
+				6432C5082521EFA20050EE40 /* MeAudioEncoder.h */,
+				6432C5092521EFA20050EE40 /* MeAudioEncoder.m */,
+				6432C50B2522D0990050EE40 /* MeVideoEncoder.h */,
+				6432C50C2522D0990050EE40 /* MeVideoEncoder.m */,
+			);
+			path = MeLive;
+			sourceTree = "<group>";
+		};
+		6432C511252326990050EE40 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				64BE3FB2251DD1F000226152 /* Assets.xcassets */,
+				64BE3FB4251DD1F000226152 /* LaunchScreen.storyboard */,
+				64BE3FB7251DD1F000226152 /* Info.plist */,
+				64BE3FB8251DD1F000226152 /* main.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		6432C512252326C80050EE40 /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				6432C513252327010050EE40 /* OpenGLController.h */,
+				6432C514252327010050EE40 /* OpenGLController.m */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		6432C5162523280F0050EE40 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				6432C5192523281A0050EE40 /* HDUploadIntroRecordView.h */,
+				6432C5172523281A0050EE40 /* HDUploadIntroRecordView.m */,
+				6432C5182523281A0050EE40 /* HDUploadRecordEncoder.h */,
+				6432C51A2523281A0050EE40 /* HDUploadRecordEncoder.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 		64A7469D25203993001FCACF /* LFLiveKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,19 +1266,11 @@
 				6432C5062521871A0050EE40 /* LALA.md */,
 				64BE3FA6251DD1EF00226152 /* AppDelegate.h */,
 				64BE3FA7251DD1EF00226152 /* AppDelegate.m */,
-				64BE3FAC251DD1EF00226152 /* ViewController.h */,
-				64BE3FAD251DD1EF00226152 /* ViewController.m */,
-				64A7469A2520374B001FCACF /* MeRecordController.h */,
-				64A7469B2520374B001FCACF /* MeRecordController.m */,
-				6432C5082521EFA20050EE40 /* MeAudioEncoder.h */,
-				6432C5092521EFA20050EE40 /* MeAudioEncoder.m */,
-				6432C50B2522D0990050EE40 /* MeVideoEncoder.h */,
-				6432C50C2522D0990050EE40 /* MeVideoEncoder.m */,
-				64BE3FB2251DD1F000226152 /* Assets.xcassets */,
-				64BE3FB4251DD1F000226152 /* LaunchScreen.storyboard */,
-				64BE3FB7251DD1F000226152 /* Info.plist */,
-				64BE3FB8251DD1F000226152 /* main.m */,
-				64A7469D25203993001FCACF /* LFLiveKit */,
+				6432C50E252326610050EE40 /* LiveKit */,
+				6432C510252326810050EE40 /* MeLive */,
+				6432C512252326C80050EE40 /* OpenGL */,
+				6432C5162523280F0050EE40 /* Record */,
+				6432C511252326990050EE40 /* Other */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -1343,6 +1398,7 @@
 				64A7490B25203994001FCACF /* amf.c in Sources */,
 				64A7490725203994001FCACF /* hashswf.c in Sources */,
 				64A7488925203994001FCACF /* GPUImageOverlayBlendFilter.m in Sources */,
+				6432C51C2523281A0050EE40 /* HDUploadRecordEncoder.m in Sources */,
 				64A748AF25203994001FCACF /* GPUImageBoxBlurFilter.m in Sources */,
 				64A748CD25203994001FCACF /* GPUImageColorLocalBinaryPatternFilter.m in Sources */,
 				64A748F025203994001FCACF /* GPUImage3x3ConvolutionFilter.m in Sources */,
@@ -1393,10 +1449,11 @@
 				64A7489325203994001FCACF /* GPUImageErosionFilter.m in Sources */,
 				64A7489A25203994001FCACF /* GPUImageTextureInput.m in Sources */,
 				64A748E225203994001FCACF /* GPUImagePinchDistortionFilter.m in Sources */,
+				6432C51B2523281A0050EE40 /* HDUploadIntroRecordView.m in Sources */,
 				64A748DD25203994001FCACF /* GPUImageClosingFilter.m in Sources */,
 				64A7486925203994001FCACF /* GPUImageHighlightShadowTintFilter.m in Sources */,
 				64A7488125203994001FCACF /* GPUImageAmatorkaFilter.m in Sources */,
-				64BE3FAE251DD1EF00226152 /* ViewController.m in Sources */,
+				64BE3FAE251DD1EF00226152 /* LiveController.m in Sources */,
 				64A748DE25203994001FCACF /* GPUImageDirectionalNonMaximumSuppressionFilter.m in Sources */,
 				64A748B225203994001FCACF /* GPUImageFramebufferCache.m in Sources */,
 				64A748E925203994001FCACF /* GPUImagePerlinNoiseFilter.m in Sources */,
@@ -1442,6 +1499,7 @@
 				64A748A225203994001FCACF /* GPUImageDifferenceBlendFilter.m in Sources */,
 				64A748ED25203994001FCACF /* GPUImageAddBlendFilter.m in Sources */,
 				64A7489725203994001FCACF /* GPUImageOpacityFilter.m in Sources */,
+				6432C515252327010050EE40 /* OpenGLController.m in Sources */,
 				64A748F525203994001FCACF /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
 				64A7485925203994001FCACF /* LFHardwareVideoEncoder.m in Sources */,
 				64A748B425203994001FCACF /* GPUImageContext.m in Sources */,

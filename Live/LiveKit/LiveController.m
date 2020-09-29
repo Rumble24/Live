@@ -1,12 +1,12 @@
 //
-//  ViewController.m
+//  LiveController.m
 //  Live
 //
 //  Created by 王景伟 on 2020/9/25.
 //  Copyright © 2020 王景伟. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LiveController.h"
 #import "LFLiveKit.h"
 #import <AVKit/AVKit.h>
 
@@ -18,7 +18,7 @@
 #define rtmpUrl @"rtmp://10.10.30.235:1935/rtmplive/roomlyj"
 #define localVideoPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/demo.mp4"]
 
-@interface ViewController ()<LFLiveSessionDelegate>
+@interface LiveController ()<LFLiveSessionDelegate>
 
 @property (nonatomic, strong) LFLiveSession *session;
 
@@ -32,7 +32,7 @@
 @property (nonatomic, strong) UIButton *playBtn;
 @end
 
-@implementation ViewController
+@implementation LiveController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,8 +41,8 @@
     [self.view addSubview:self.playBtn];
     [self.view addSubview:self.startButton];
     
-    [ViewController getSystemCameraStatus:nil];
-    [ViewController getSystemAudioStatus:nil];
+    [LiveController getSystemCameraStatus:nil];
+    [LiveController getSystemAudioStatus:nil];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDelete = [fileManager removeItemAtPath:localVideoPath error:nil];
