@@ -19,7 +19,7 @@
 #import <AVKit/AVKit.h>
 #import <VideoToolbox/VideoToolbox.h>
 #import "MeAudioEncoder.h"
-#import "LFHardwareVideoEncoder.h"
+#import "MeVideoEncoder.h"
 #import "LFStreamRTMPSocket.h"
 
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -27,7 +27,7 @@
 #define NOW (CACurrentMediaTime()*1000)
 #define rtmpUrl @"rtmp://10.10.30.235:1935/rtmplive/roomlyj"
 
-@interface MeRecordController () <GPUImageVideoCameraDelegate, SQAudioEncoderDelegate, LFVideoEncodingDelegate, LFStreamSocketDelegate>
+@interface MeRecordController () <GPUImageVideoCameraDelegate, MeAudioEncoderDelegate,MeVideoEncoderDelegate,LFStreamSocketDelegate>
 ///< 开始/结束
 @property (nonatomic, strong) UIButton *startButton;
 ///< 播放
@@ -41,11 +41,12 @@
 
 @property (nonatomic, strong) NSString *localPath;
 
-@property (nonatomic, strong) MeAudioEncoder *encoder;
-/// 视频编码
-@property (nonatomic, strong) id<LFVideoEncoding> videoEncoder;
-/// 上传
-@property (nonatomic, strong) id<LFStreamSocket> socket;
+@property (nonatomic, strong) MeAudioEncoder *audioEncoder;
+
+@property (nonatomic, strong) MeVideoEncoder *videoEncoder;
+
+@property (nonatomic, strong) LFStreamRTMPSocket *socket;
+
 @end
 
 @implementation MeRecordController
@@ -90,47 +91,103 @@
     self.camera.audioEncodingTarget = self.writer;
     [self.camera addTarget:self.writer];
     
-    self.encoder = [[MeAudioEncoder alloc]initWithConfig:[[SQAudioConfig alloc]init]];
-    self.encoder.delegate = self;
+    self.audioEncoder = [[MeAudioEncoder alloc]init];
+    self.audioEncoder.delegate = self;
     
-    self.videoEncoder = [[LFHardwareVideoEncoder alloc] initWithVideoStreamConfiguration:[LFLiveVideoConfiguration defaultConfiguration]];
+    self.videoEncoder = [[MeVideoEncoder alloc] init];
     [self.videoEncoder setDelegate:self];
     
-    LFLiveStreamInfo *streanInfo = LFLiveStreamInfo.new;
-    streanInfo.url = rtmpUrl;
-    _socket = [[LFStreamRTMPSocket alloc] initWithStream:streanInfo reconnectInterval:1 reconnectCount:5];
-    [_socket setDelegate:self];
+    
+    LFLiveStreamInfo *streamInfo = LFLiveStreamInfo.new;
+    streamInfo.url = rtmpUrl;
+    self.socket = [[LFStreamRTMPSocket alloc] initWithStream:streamInfo reconnectInterval:1 reconnectCount:5];
+    [self.socket setDelegate:self];
 }
 
 #pragma mark - 2.视频进行 H264编码     LFHardwareVideoEncoder
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
-    CVPixelBufferRef pixelbuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    [self.videoEncoder encodeVideoData:pixelbuffer timeStamp:NOW];
+    [self.videoEncoder encodeVideoSamepleBuffer:sampleBuffer];
 }
 
-- (void)videoEncoder:(nullable id<LFVideoEncoding>)encoder videoFrame:(nullable LFVideoFrame *)frame {
+/// 得到编码结果
+- (void)videoEncodeCallBack:(LFVideoFrame *)frame {
     [self.socket sendFrame:frame];
 }
 
-#pragma mark - 3.音频进行 AAC编码     LFHardwareVideoEncoder
+#pragma mark - 3.音频进行 AAC编码 LFHardwareVideoEncoder
 - (void)willOutputAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer {
-    [self.encoder encodeAudioSamepleBuffer:sampleBuffer];
+    [self.audioEncoder encodeAudioSamepleBuffer:sampleBuffer];
 }
 
-- (void)audioEncodeCallBack:(NSData *)aacData {
-    LFAudioFrame *audioFrame = [LFAudioFrame new];
-    audioFrame.timestamp = NOW;
-    audioFrame.data = aacData;
-    [self.socket sendFrame:audioFrame];
+/// 得到编码结果
+- (void)audioEncodeCallBack:(LFAudioFrame *)frame {
+    [self.socket sendFrame:frame];
 }
-
-
-
-
-
 
 #pragma mark - 4.打包flv格式 经过RTMP上传到推流服务器  pili-librtmp：因为rtmp协议所传输的视频流，就要求是flv格式
+#pragma mark -- LFStreamTcpSocketDelegate
+- (void)socketStatus:(nullable id<LFStreamSocket>)socket status:(LFLiveState)status {
+    NSString *stateStr;
+    switch (status) {
+        case LFLiveReady:
+            stateStr = @"准备";
+            break;
+            
+        case LFLivePending:
+            stateStr = @"连接中";
+            break;
+            
+        case LFLiveStart:
+            stateStr = @"已连接";
+            break;
+            
+        case LFLiveStop:
+            stateStr = @"已断开";
+            break;
+            
+        case LFLiveError:
+            stateStr = @"连接出错";
+            break;
+            
+        case LFLiveRefresh:
+            stateStr = @"正在刷新";
+            break;
+            
+        default:
+            break;
+    }
+    
+    NSLog(@"推流状态改变  %@",stateStr);
+}
 
+- (void)socketDidError:(nullable id<LFStreamSocket>)socket errorCode:(LFLiveSocketErrorCode)errorCode {
+    switch (errorCode) {
+        case LFLiveSocketError_PreView:
+             NSLog(@"预览失败");
+            break;
+        case LFLiveSocketError_GetStreamInfo:
+            NSLog(@"获取流媒体信息失败");
+            break;
+        case LFLiveSocketError_ConnectSocket:
+            NSLog(@"连接socket失败");
+            break;
+        case LFLiveSocketError_Verification:
+            NSLog(@"验证服务器失败");
+            break;
+        case LFLiveSocketError_ReConnectTimeOut:
+            NSLog(@"重新连接服务器超时");
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)socketDebug:(nullable id<LFStreamSocket>)socket debugInfo:(nullable LFLiveDebug *)debugInfo {
+}
+
+- (void)socketBufferStatus:(nullable id<LFStreamSocket>)socket status:(LFLiveBuffferState)status {
+
+}
 
 /// 开始按钮点击
 - (void)startButtonClick:(UIButton *)btn {
@@ -152,6 +209,8 @@
 /// 结束直播
 - (void)stopLive {
     [self.writer finishRecording];
+    [self.audioEncoder stopEncode];
+    [self.videoEncoder stopEncode];
     [self.camera stopCameraCapture];
     [self.socket stop];
 }

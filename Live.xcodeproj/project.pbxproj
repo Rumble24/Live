@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6432C5072521871A0050EE40 /* LALA.md in Resources */ = {isa = PBXBuildFile; fileRef = 6432C5062521871A0050EE40 /* LALA.md */; };
 		6432C50A2521EFA20050EE40 /* MeAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C5092521EFA20050EE40 /* MeAudioEncoder.m */; };
+		6432C50D2522D0990050EE40 /* MeVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6432C50C2522D0990050EE40 /* MeVideoEncoder.m */; };
 		64A7469C2520374B001FCACF /* MeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7469B2520374B001FCACF /* MeRecordController.m */; };
 		64A7484425203994001FCACF /* LFLiveVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A746A025203993001FCACF /* LFLiveVideoConfiguration.m */; };
 		64A7484525203994001FCACF /* LFLiveAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A746A125203993001FCACF /* LFLiveAudioConfiguration.m */; };
@@ -226,6 +227,8 @@
 		6432C5062521871A0050EE40 /* LALA.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LALA.md; sourceTree = "<group>"; };
 		6432C5082521EFA20050EE40 /* MeAudioEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeAudioEncoder.h; sourceTree = "<group>"; };
 		6432C5092521EFA20050EE40 /* MeAudioEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeAudioEncoder.m; sourceTree = "<group>"; };
+		6432C50B2522D0990050EE40 /* MeVideoEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeVideoEncoder.h; sourceTree = "<group>"; };
+		6432C50C2522D0990050EE40 /* MeVideoEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeVideoEncoder.m; sourceTree = "<group>"; };
 		64A7469A2520374B001FCACF /* MeRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeRecordController.h; sourceTree = "<group>"; };
 		64A7469B2520374B001FCACF /* MeRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeRecordController.m; sourceTree = "<group>"; };
 		64A7469F25203993001FCACF /* LFLiveAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveAudioConfiguration.h; sourceTree = "<group>"; };
@@ -1206,6 +1209,8 @@
 				64A7469B2520374B001FCACF /* MeRecordController.m */,
 				6432C5082521EFA20050EE40 /* MeAudioEncoder.h */,
 				6432C5092521EFA20050EE40 /* MeAudioEncoder.m */,
+				6432C50B2522D0990050EE40 /* MeVideoEncoder.h */,
+				6432C50C2522D0990050EE40 /* MeVideoEncoder.m */,
 				64BE3FB2251DD1F000226152 /* Assets.xcassets */,
 				64BE3FB4251DD1F000226152 /* LaunchScreen.storyboard */,
 				64BE3FB7251DD1F000226152 /* Info.plist */,
@@ -1459,6 +1464,7 @@
 				64A748A925203994001FCACF /* GPUImageLanczosResamplingFilter.m in Sources */,
 				64A7484A25203994001FCACF /* LFVideoFrame.m in Sources */,
 				64A748D625203994001FCACF /* GPUImageWhiteBalanceFilter.m in Sources */,
+				6432C50D2522D0990050EE40 /* MeVideoEncoder.m in Sources */,
 				64A748F725203994001FCACF /* GPUImageExposureFilter.m in Sources */,
 				64A7484625203994001FCACF /* LFVideoCapture.m in Sources */,
 				64A748A125203994001FCACF /* GPUImageBrightnessFilter.m in Sources */,

@@ -1,4 +1,4 @@
-# LIVE --> 路线
+# LIVE --> 路线 转码H264必须是YUV格式
 
 AVFunction
 VideoToolBox：https://blog.csdn.net/ruoxinliu/article/details/53765041
@@ -15,7 +15,7 @@ ffmpeg在不同系统中的安装与简单裁剪
 H264编码原理
 如何从不同设备上采集视频数据
 熟悉YUV的一些常见格式（YUV420、NV21，YV12的不同）
-如何将YUV数据编码为H264/H265、VP8/VP9等
+如何将YUV数据编码为H264/H265、VP8/VP9等。    
 FLV/RTMP/HLS/MP4协议要十分清楚
 
 # 学习
