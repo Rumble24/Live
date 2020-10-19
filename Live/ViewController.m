@@ -43,29 +43,25 @@
     [self.view addSubview:self.playBtn];
     [self.view addSubview:self.startButton];
     
-    [ViewController getSystemCameraStatus:nil];
-    [ViewController getSystemAudioStatus:nil];
+    [ViewController getSystemCameraStatus];
+    [ViewController getSystemAudioStatus];
 }
 
-+ (void)getSystemCameraStatus:(PermissionBlock)response {
++ (void)getSystemCameraStatus {
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
-        if (response) response(NO);
     } else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
         [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (response) response(granted);
             });
         }];
     } else {
-        if (response) response(YES);
     }
 }
 
-+ (void)getSystemAudioStatus:(PermissionBlock)response {
++ (void)getSystemAudioStatus {
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (response) response(granted);
         });
     }];
 }
