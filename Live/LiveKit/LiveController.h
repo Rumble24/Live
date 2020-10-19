@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LiveController.h
 //  Live
 //
 //  Created by 王景伟 on 2020/9/25.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LiveController : UIViewController
 
 
 @end

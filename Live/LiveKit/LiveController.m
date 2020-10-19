@@ -1,13 +1,13 @@
 //
-//  ViewController.m
+//  LiveController.m
 //  Live
 //
 //  Created by 王景伟 on 2020/9/25.
 //  Copyright © 2020 王景伟. All rights reserved.
 //
 
-#import "ViewController.h"
-#import <LFLiveKit.h>
+#import "LiveController.h"
+#import "LFLiveKit.h"
 #import <AVKit/AVKit.h>
 
 
@@ -18,7 +18,7 @@
 #define rtmpUrl @"rtmp://10.10.30.235:1935/rtmplive/roomlyj"
 #define localVideoPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/demo.mp4"]
 
-@interface ViewController ()<LFLiveSessionDelegate>
+@interface LiveController ()<LFLiveSessionDelegate>
 
 @property (nonatomic, strong) LFLiveSession *session;
 
@@ -32,36 +32,46 @@
 @property (nonatomic, strong) UIButton *playBtn;
 @end
 
-@implementation ViewController
+@implementation LiveController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"直播";
-    
+        
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.playBtn];
     [self.view addSubview:self.startButton];
     
-    [ViewController getSystemCameraStatus];
-    [ViewController getSystemAudioStatus];
-}
-
-+ (void)getSystemCameraStatus {
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
-    } else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
-        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-            });
-        }];
+    [LiveController getSystemCameraStatus:nil];
+    [LiveController getSystemAudioStatus:nil];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDelete = [fileManager removeItemAtPath:localVideoPath error:nil];
+    if (isDelete) {
+        NSLog(@"删除成功");
     } else {
+        NSLog(@"删除失败");
     }
 }
 
-+ (void)getSystemAudioStatus {
++ (void)getSystemCameraStatus:(PermissionBlock)response {
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
+        if (response) response(NO);
+    } else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (response) response(granted);
+            });
+        }];
+    } else {
+        if (response) response(YES);
+    }
+}
+
++ (void)getSystemAudioStatus:(PermissionBlock)response {
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            if (response) response(granted);
         });
     }];
 }
@@ -139,10 +149,13 @@
         default:
             break;
     }
+    
+    NSLog(@"推流状态改变  %@",stateStr);
 }
 
 //推流信息
-- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo{
+- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo {
+    NSLog(@"推流信息  %@",session.currentImage);
 }
 
 //推流错误信息
@@ -177,14 +190,14 @@
         _session.reconnectCount = 5;//重连次数
         _session.saveLocalVideo = YES;
         _session.saveLocalVideoPath = [NSURL fileURLWithPath:localVideoPath];
-        
+        _session.delegate = self;
+        _session.running = YES;
         /// 显示试图
         self.preView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
         self.preView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:self.preView];
         _session.preView = self.preView;
         
-        _session.delegate = self;
     }
     return _session;
 }
@@ -194,7 +207,7 @@
         _startButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [_startButton setTitle:@"开始" forState:0];
         [_startButton setTitle:@"结束" forState:UIControlStateSelected];
-        _startButton.frame = CGRectMake(0, 88 + 20, kScreenWidth/4.0, 50);
+        _startButton.frame = CGRectMake(0, kScreenWidth + 20, kScreenWidth/4.0, 50);
         [_startButton addTarget:self action:@selector(startLive:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _startButton;
@@ -204,7 +217,7 @@
     if (!_playBtn) {
         _playBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_playBtn setTitle:@"播放" forState:0];
-        _playBtn.frame = CGRectMake(kScreenWidth/4.0, 88 + 20, kScreenWidth/4.0, 50);
+        _playBtn.frame = CGRectMake(kScreenWidth/4.0, kScreenWidth + 20, kScreenWidth/4.0, 50);
         [_playBtn setTitleColor:[UIColor redColor] forState:0];
         [_playBtn addTarget:self action:@selector(startPlayAction:) forControlEvents:UIControlEventTouchUpInside];
     }
